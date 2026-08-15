@@ -3,314 +3,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMIRISCRIPTS | Official Execution Hub</title>
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
-
+    <title>AMIRI · Rivals Pro</title>
+    <!-- Font Awesome for icons (optional, but adds polish) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --bg-black: #050505;
-            --card-bg: #0c0d10;
-            --accent-lime: #00ff66;
-            --accent-glow: rgba(0, 255, 102, 0.25);
-            --border-color: #1a1d24;
-            --text-primary: #ffffff;
-            --text-secondary: #8a8f9d;
-            --code-bg: #030406;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--bg-black);
-            color: var(--text-primary);
+            background: #0b0e0f;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            overflow-x: hidden;
-            position: relative;
+            padding: 2rem 1.5rem;
         }
 
-        /* Subtle Background Grid FX */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at 50% 20%, rgba(0, 255, 102, 0.08) 0%, transparent 60%),
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 100% 100%, 40px 40px, 40px 40px;
-            z-index: -1;
-        }
-
-        /* Navigation */
-        nav {
+        .container {
+            max-width: 1300px;
             width: 100%;
-            max-width: 1000px;
-            padding: 25px 20px;
+            background: #13171a;
+            border-radius: 2.5rem;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px #2a3a2a;
+            transition: all 0.2s ease;
+        }
+
+        /* ----- dark theme + lime accents ----- */
+        h1, h2, h3, p, li, .price-tag, .feature-item {
+            color: #e6eee6;
+        }
+
+        .lime-text {
+            color: #b4ff5c;
+        }
+
+        .lime-border {
+            border-color: #b4ff5c;
+        }
+
+        .lime-bg {
+            background: #b4ff5c;
+            color: #0b0e0f;
+            font-weight: 700;
+        }
+
+        .lime-bg:hover {
+            background: #9ee64a;
+            transform: scale(1.02);
+            box-shadow: 0 0 16px #b4ff5c88;
+        }
+
+        .lime-outline {
+            border: 2px solid #b4ff5c;
+            color: #b4ff5c;
+            background: transparent;
+        }
+
+        .lime-outline:hover {
+            background: #b4ff5c22;
+            border-color: #c9ff7a;
+        }
+
+        /* ----- header / brand ----- */
+        .brand {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #2b3a2b;
+            padding-bottom: 1rem;
         }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            color: var(--accent-lime);
-            text-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .logo span {
-            color: var(--accent-lime);
-        }
-
-        .status-badge {
-            background-color: rgba(0, 255, 102, 0.1);
-            border: 1px solid rgba(0, 255, 102, 0.3);
-            color: var(--accent-lime);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent-lime);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent-lime);
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
-        }
-
-        /* Main Container */
-        main {
-            width: 100%;
-            max-width: 650px;
-            padding: 20px;
-            margin: auto 0;
-        }
-
-        .glass-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 18px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 1px 1px rgba(255, 255, 255, 0.05);
-            text-align: center;
-            position: relative;
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: -1px; left: 15%; right: 15%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-lime), transparent);
-        }
-
-        h1 {
+        .brand i {
             font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 10px;
+            color: #b4ff5c;
+            filter: drop-shadow(0 0 6px #6f9e3a);
+        }
+
+        .brand h1 {
+            font-size: 2rem;
+            font-weight: 700;
             letter-spacing: -0.5px;
         }
 
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 30px;
+        .brand span {
+            font-weight: 300;
+            color: #9bb89b;
+            margin-left: 0.5rem;
+            font-size: 1.1rem;
         }
 
-        /* Features Badges */
-        .features {
+        /* ----- product showcase (image + buy) ----- */
+        .product-showcase {
             display: flex;
-            justify-content: center;
-            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-
-        .feature-tag {
-            background-color: #12151c;
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 0.82rem;
-            font-weight: 500;
-            display: flex;
+            gap: 2.5rem;
             align-items: center;
-            gap: 6px;
+            margin-bottom: 3rem;
         }
 
-        .feature-tag i {
-            color: var(--accent-lime);
+        .product-image-wrapper {
+            flex: 1 1 300px;
+            background: #1e2629;
+            border-radius: 2rem;
+            padding: 1.2rem;
+            border: 1px solid #2f4030;
+            box-shadow: inset 0 0 18px #0f1416;
+            transition: 0.25s;
         }
 
-        /* Code Block */
-        .code-wrapper {
-            position: relative;
-            background-color: var(--code-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 16px;
-            margin-bottom: 25px;
-            text-align: left;
+        .product-image-wrapper:hover {
+            border-color: #b4ff5c88;
         }
 
-        .code-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .code-box {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
-            color: var(--accent-lime);
-            word-break: break-all;
-            line-height: 1.5;
-        }
-
-        /* Primary Button */
-        .btn-copy {
-            background-color: var(--accent-lime);
-            color: #000000;
-            border: none;
+        .product-img {
             width: 100%;
-            padding: 16px;
+            height: auto;
+            display: block;
+            border-radius: 1.2rem;
+            background: #0f1416;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            box-shadow: 0 8px 20px #00000066;
+            border: 1px solid #2a3a2a;
+        }
+
+        /* placeholder image using SVG + gradient (product image) */
+        .product-img-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: radial-gradient(circle at 20% 30%, #2f4a2f, #0f1a0f);
+            border-radius: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #b4ff5c;
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            border: 1px solid #3d5a3d;
+            box-shadow: inset 0 0 40px #0a130a;
+            gap: 0.2rem;
+        }
+
+        .product-img-placeholder i {
+            font-size: 4rem;
+            opacity: 0.9;
+            text-shadow: 0 0 20px #7fb23e;
+        }
+
+        .product-img-placeholder small {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            color: #b4ff5c;
+            background: #00000044;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+        }
+
+        .buy-section {
+            flex: 1 1 240px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .buy-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .buy-section .sub {
+            color: #9bb89b;
             font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.8rem;
+            border-radius: 60px;
+            font-size: 1.3rem;
             font-weight: 700;
-            border-radius: 10px;
+            text-decoration: none;
+            border: none;
             cursor: pointer;
             transition: all 0.2s ease;
+            letter-spacing: 0.3px;
+            width: fit-content;
+            box-shadow: 0 4px 12px #00000055;
+        }
+
+        .btn i {
+            margin-right: 10px;
+        }
+
+        /* ----- product description (feature list) ----- */
+        .description-section {
+            background: #101618;
+            border-radius: 2rem;
+            padding: 2rem 2.2rem;
+            border-left: 6px solid #b4ff5c;
+            margin: 2rem 0 2.5rem 0;
+            box-shadow: inset 0 0 30px #050808;
+        }
+
+        .description-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
             display: flex;
-            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .description-section h3 i {
+            color: #b4ff5c;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem 2rem;
+            margin-top: 0.8rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed #273327;
+        }
+
+        .feature-item i {
+            color: #b4ff5c;
+            width: 1.4rem;
+            font-size: 1rem;
+        }
+
+        .feature-item strong {
+            color: #d4f0d4;
+            font-weight: 600;
+        }
+
+        .feature-item span {
+            color: #b8d0b8;
+            font-size: 0.95rem;
+        }
+
+        .why-choose {
+            margin-top: 1.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #233023;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem 3rem;
+        }
+
+        .why-choose p {
+            display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 0 20px var(--accent-glow);
+            color: #b8d0b8;
         }
 
-        .btn-copy:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(0, 255, 102, 0.4);
-            background-color: #1aff75;
+        .why-choose i {
+            color: #b4ff5c;
+            width: 1.6rem;
         }
 
-        .btn-copy:active {
-            transform: translateY(0);
+        /* ----- PRICING PAGE (hidden by default, shown via target) ----- */
+        .pricing-page {
+            display: none;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 2px solid #1f2f1f;
         }
 
-        /* Footer */
-        footer {
-            padding: 30px 20px;
-            color: var(--text-secondary);
-            font-size: 0.8rem;
+        .pricing-page:target {
+            display: block;
+        }
+
+        .pricing-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0 2.5rem 0;
+        }
+
+        .price-card {
+            background: #1a2124;
+            border-radius: 2rem;
+            padding: 1.8rem 1.6rem;
+            min-width: 170px;
+            flex: 1 0 150px;
+            border: 1px solid #2d402d;
             text-align: center;
+            transition: 0.15s;
+            box-shadow: 0 6px 0 #0b0f0f;
         }
 
-        footer a {
-            color: var(--accent-lime);
+        .price-card:hover {
+            border-color: #b4ff5c;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 0 #0b0f0f;
+        }
+
+        .price-card .key-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9bb89b;
+        }
+
+        .price-card .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #b4ff5c;
+            margin: 0.5rem 0 0.8rem 0;
+        }
+
+        .price-card .price small {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #8aaa8a;
+        }
+
+        .price-card .btn-buy-key {
+            background: #b4ff5c;
+            border: none;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 700;
+            color: #0b0e0f;
+            cursor: pointer;
+            transition: 0.15s;
+            font-size: 0.95rem;
+            width: 100%;
+            margin-top: 0.3rem;
+        }
+
+        .price-card .btn-buy-key:hover {
+            background: #c9ff7a;
+            transform: scale(1.02);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: #b4ff5c;
             text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: 0.15s;
+        }
+
+        .back-link:hover {
+            border-bottom-color: #b4ff5c;
+        }
+
+        .pricing-page h2 {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .pricing-page h2 i {
+            color: #b4ff5c;
+        }
+
+        /* ----- responsive tweaks ----- */
+        @media (max-width: 700px) {
+            .container {
+                padding: 1.5rem;
+            }
+            .brand h1 {
+                font-size: 1.6rem;
+            }
+            .buy-section h2 {
+                font-size: 1.6rem;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .product-image-wrapper {
+                flex: 1 1 100%;
+            }
+            .description-section {
+                padding: 1.5rem;
+            }
+            .price-card {
+                flex: 1 0 130px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <nav>
-        <div class="logo">
-            <i class="fa-solid fa-terminal"></i> AMIRI<span>SCRIPTS</span>
-        </div>
-        <div class="status-badge">
-            <div class="status-dot"></div> Undetected
-        </div>
-    </nav>
+<div class="container" id="main">
 
-    <!-- Main Content -->
-    <main>
-        <div class="glass-card">
-            <h1>Execution Hub</h1>
-            <p class="subtitle">Copy and paste the loadstring directly into your executor.</p>
+    <!-- header -->
+    <div class="brand">
+        <i class="fas fa-bolt"></i>
+        <h1>AMIRI <span>| Rivals Pro</span></h1>
+        <span style="margin-left: auto; font-size: 0.9rem; background: #1f2a1f; padding: 0.2rem 1rem; border-radius: 40px; border: 1px solid #3a5a3a;">
+            <i class="fas fa-circle" style="color: #b4ff5c; font-size: 0.6rem;"></i> v3.0
+        </span>
+    </div>
 
-            <!-- Feature Tags -->
-            <div class="features">
-                <div class="feature-tag"><i class="fa-solid fa-crosshair"></i> Color Aimbot</div>
-                <div class="feature-tag"><i class="fa-solid fa-circle-notch"></i> FOV Circle</div>
-                <div class="feature-tag"><i class="fa-solid fa-bolt"></i> Fast Config</div>
+    <!-- product showcase: image + buy now -->
+    <div class="product-showcase">
+        <div class="product-image-wrapper">
+            <!-- product image (placeholder) -->
+            <div class="product-img-placeholder">
+                <i class="fas fa-crosshairs"></i>
+                <span>⚡ AMIRI · RIVALS</span>
+                <small>pro script · execution hub</small>
             </div>
-
-            <!-- Code Display -->
-            <div class="code-wrapper">
-                <div class="code-header">
-                    <span>LUA LOADSTRING</span>
-                    <i class="fa-regular fa-code"></i>
-                </div>
-                <div class="code-box" id="luaCode">loadstring(game:HttpGet("https://pastebin.com/raw/YOUR_SCRIPT_ID"))()</div>
-            </div>
-
-            <!-- Action Button -->
-            <button class="btn-copy" id="copyBtn" onclick="copyToClipboard()">
-                <i class="fa-regular fa-copy"></i> Copy Loadstring
-            </button>
+            <!-- you can replace the div above with an <img> if needed -->
         </div>
-    </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a> • Built for AMIRISCRIPTS</p>
-    </footer>
+        <div class="buy-section">
+            <h2><span class="lime-text">AMIRI</span> Rivals</h2>
+            <p class="sub"><i class="fas fa-check-circle" style="color: #b4ff5c;"></i> precision · speed · customization</p>
+            <a href="#pricing" class="btn lime-bg">
+                <i class="fas fa-cart-plus"></i> Buy Now
+            </a>
+            <p style="font-size: 0.85rem; color: #7a977a;"><i class="fas fa-shield-alt"></i> instant delivery · secure</p>
+        </div>
+    </div>
 
-    <!-- Script Logic -->
-    <script>
-        function copyToClipboard() {
-            const codeText = document.getElementById("luaCode").innerText;
-            const btn = document.getElementById("copyBtn");
+    <!-- product description (full) -->
+    <div class="description-section">
+        <h3><i class="fas fa-bolt"></i> AMIRI | Roblox Rivals Pro Script</h3>
+        <p style="color: #c5dec5; margin-bottom: 1.2rem; font-size: 1.05rem; line-height: 1.5;">
+            Take total control of the arena with <strong class="lime-text">AMIRI Rivals Pro</strong>, the ultimate high-performance script suite designed specifically for Roblox Rivals. Engineered for precision, speed, and complete customization, AMIRI gives you the competitive edge you need to dominate every match effortlessly.
+        </p>
 
-            navigator.clipboard.writeText(codeText).then(() => {
-                btn.innerHTML = `<i class="fa-solid fa-check"></i> Copied to Clipboard!`;
-                btn.style.backgroundColor = "#ffffff";
-                btn.style.color = "#000000";
-                
-                setTimeout(() => {
-                    btn.innerHTML = `<i class="fa-regular fa-copy"></i> Copy Loadstring`;
-                    btn.style.backgroundColor = "var(--accent-lime)";
-                }, 2000);
-            });
-        }
-    </script>
+        <div style="font-weight: 600; color: #b4ff5c; margin: 0.5rem 0 0.8rem 0;"><i class="fas fa-fire"></i> 🔥 Key Features:</div>
+        <div class="feature-grid">
+            <div class="feature-item"><i class="fas fa-bullseye"></i> <strong>Advanced Aimbot:</strong> <span>Lock onto enemies instantly with customizable smoothing, FOV circles, target selection (Head/Torso), and prediction algorithms.</span></div>
+            <div class="feature-item"><i class="fas fa-eye"></i> <strong>Full Visual ESP:</strong> <span>See every move through walls. Displays player boxes, distance, health bars, and line-of-sight tracers in real time.</span></div>
+            <div class="feature-item"><i class="fas fa-rainbow"></i> <strong>Rainbow Gun & Custom Skins:</strong> <span>Flex on the server with smooth RGB rainbow cycles on your weapons and custom visual mods.</span></div>
+            <div class="feature-item"><i class="fas fa-rocket"></i> <strong>Fly & NoClip:</strong> <span>Bypass map boundaries, glide through terrain, and gain unfair high-ground advantages at high speeds.</span></div>
+            <div class="feature-item"><i class="fas fa-shield-virus"></i> <strong>Anti-Blind & QoL Tweaks:</strong> <span>Immunity to flashbangs and blind effects. Includes Dark Arena mode for improved contrast and visual clarity.</span></div>
+            <div class="feature-item"><i class="fas fa-sliders-h"></i> <strong>Config Manager:</strong> <span>Save and load your favorite playstyles instantly—switch between subtle closet settings and full rage modes in seconds.</span></div>
+        </div>
+
+        <div class="why-choose">
+            <p><i class="fas fa-dragon"></i> <strong>Lightweight & Fast</strong> – Optimized code ensures zero lag or frame drops.</p>
+            <p><i class="fas fa-gem"></i> <strong>Sleek UI</strong> – Clean, intuitive dark-mode interface designed for quick hotkey toggles.</p>
+            <p><i class="fas fa-sync-alt"></i> <strong>Frequent Updates</strong> – Regularly maintained to ensure maximum compatibility.</p>
+        </div>
+    </div>
+
+    <!-- PRICING PAGE (hidden, appears when #pricing is targeted) -->
+    <div class="pricing-page" id="pricing">
+        <h2><i class="fas fa-tag"></i> Choose your key</h2>
+        <p style="color: #a0bfa0; margin-bottom: 0.5rem;">Secure instant access · all keys include full AMIRI Rivals Pro</p>
+
+        <div class="pricing-grid">
+            <!-- 1-day -->
+            <div class="price-card">
+                <div class="key-label"><i class="far fa-clock"></i> 1-day key</div>
+                <div class="price">$2.99 <small>USD</small></div>
+                <button class="btn-buy-key" onclick="alert('🔑 1-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button>
+            </div>
+            <!-- 7-day -->
+            <div class="price-card">
+                <div class="key-label"><i class="far fa-calendar-alt"></i> 7-day key</div>
+                <div class="price">$4.99 <small>USD</small></div>
+                <button class="btn-buy-key" onclick="alert('🔑 7-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button>
+            </div>
+            <!-- 30-day -->
+            <div class="price-card">
+                <div class="key-label"><i class="far fa-calendar-plus"></i> 30-day key</div>
+                <div class="price">$14.99 <small>USD</small></div>
+                <button class="btn-buy-key" onclick="alert('🔑 30-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button>
+            </div>
+            <!-- lifetime -->
+            <div class="price-card" style="border-color: #b4ff5c66;">
+                <div class="key-label"><i class="fas fa-infinity"></i> lifetime key</div>
+                <div class="price">$24.99 <small>USD</small></div>
+                <button class="btn-buy-key" style="background: #b4ff5c; box-shadow: 0 0 16px #7fb23e55;" onclick="alert('🌟 LIFETIME key added (demo)')"><i class="fas fa-crown"></i> Buy now</button>
+            </div>
+        </div>
+
+        <!-- product image again (small) -->
+        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; background: #111b1b; padding: 1rem 1.8rem; border-radius: 3rem; margin: 1.5rem 0 1rem 0; border: 1px solid #2f472f;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <i class="fas fa-crosshairs" style="font-size: 2.5rem; color: #b4ff5c;"></i>
+                <span style="color: #b4ff5c; font-weight: 600;">AMIRI · RIVALS PRO</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; color: #9bb89b; font-size: 0.9rem;">
+                <i class="fas fa-check-circle" style="color: #b4ff5c;"></i> instant activation
+                <i class="fas fa-check-circle" style="color: #b4ff5c; margin-left: 0.8rem;"></i> 24/7 support
+            </div>
+        </div>
+
+        <a href="#main" class="back-link"><i class="fas fa-arrow-left"></i> back to product</a>
+    </div>
+
+    <!-- tiny footer / script loadstring (from original site) -->
+    <div style="margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #1f2f1f; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+        <div style="color: #6f8f6f; font-size: 0.85rem;">
+            <i class="fas fa-code"></i> loadstring: 
+            <span style="background: #0d1414; padding: 0.2rem 0.8rem; border-radius: 20px; font-family: monospace; color: #b4ff5c; border: 1px solid #2b412b;">
+                game:HttpGet("https://pastebin.com/raw/YOUR_SCRIPT_ID")
+            </span>
+        </div>
+        <div style="display: flex; gap: 1.2rem; color: #5a7a5a;">
+            <span><i class="fas fa-circle" style="color: #b4ff5c; font-size: 0.5rem;"></i> color aimbot</span>
+            <span><i class="fas fa-circle" style="color: #b4ff5c; font-size: 0.5rem;"></i> FOV circle</span>
+            <span><i class="fas fa-circle" style="color: #b4ff5c; font-size: 0.5rem;"></i> fast config</span>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
