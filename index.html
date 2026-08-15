@@ -113,38 +113,38 @@
       z-index: 2;
     }
 
-    /* Top Logo */
+    /* Top Logo - HUGE & NO GLOW */
     .top-logo-container {
       width: 100%;
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       flex-basis: 100%;
     }
     .top-logo-container img {
-      max-height: 80px;
+      max-height: 160px; /* Made much bigger */
       width: auto;
-      filter: drop-shadow(0 0 15px #6f9e3a55);
+      /* No glow/drop-shadow here anymore to blend into background */
       transition: transform 0.2s ease;
     }
     .top-logo-container img:hover {
       transform: scale(1.05);
     }
 
-    /* Left Column: Content */
+    /* Left/Content Column - Buttons PERFECTLY CENTERED */
     .start-content {
       flex: 1 1 45%;
       padding-right: 2rem;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Centers buttons horizontally */
+      align-items: center; /* Perfectly centers buttons horizontally */
       justify-content: center;
+      text-align: center;
     }
     .start-content .tagline {
       font-size: 1.2rem;
       color: #9bb89b;
       letter-spacing: 2px;
       margin-bottom: 2rem;
-      text-align: center;
     }
     .btn-hero {
       padding: 1rem 3.5rem;
@@ -200,14 +200,13 @@
       display: flex;
       justify-content: flex-end; /* Pushes image to the far right */
       align-items: center;
-      overflow: hidden; /* Ensures no rounding on the right side if needed */
+      overflow: hidden;
     }
     .start-image-container img {
       max-width: 100%;
       height: auto;
       max-height: 450px;
       display: block;
-      /* Removed border, padding, background and radius to make it "frameless" */
       filter: drop-shadow(0 0 30px rgba(0,0,0,0.8));
       transition: transform 0.3s ease;
     }
@@ -664,7 +663,7 @@
     }
     @media (max-width: 700px) {
       .container { padding: 1.5rem; }
-      .top-logo-container img { max-height: 60px; }
+      .top-logo-container img { max-height: 120px; }
       .brand h1 { font-size: 1.6rem; }
       .btn { width: 100%; text-align: center; }
       .product-image-wrapper { flex: 1 1 100%; }
@@ -711,12 +710,12 @@
   <div id="startPage">
     <div class="start-hero">
       
-      <!-- TOP LOGO -->
+      <!-- TOP LOGO - HUGE & NO GLOW -->
       <div class="top-logo-container">
         <img src="cde55854-5534-4814-9a1c-fbda63bcba1d.jpg" alt="AMIRI Logo" />
       </div>
 
-      <!-- LEFT SIDE: Buttons (Centered) -->
+      <!-- LEFT SIDE: Buttons (Perfectly Centered) -->
       <div class="start-content">
         <p class="tagline">execution hub · premium scripts</p>
         
@@ -775,8 +774,6 @@
         <button class="btn-select" onclick="showMM2()">View Product</button>
       </div>
     </div>
-
-    <!-- Removed the back button here, since the top nav handles it -->
   </div>
 
   <!-- ================= RIVALS PRO PAGE ================= -->
@@ -826,7 +823,6 @@
         <div class="price-card"><div class="key-label"><i class="far fa-calendar-plus"></i> 30-day key</div><div class="price">$14.99 <small>USD</small></div><button class="btn-buy-key" onclick="alert('🔑 30-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button></div>
         <div class="price-card" style="border-color: #b4ff5c66;"><div class="key-label"><i class="fas fa-infinity"></i> lifetime key</div><div class="price">$24.99 <small>USD</small></div><button class="btn-buy-key" style="background: #b4ff5c; box-shadow: 0 0 16px #7fb23e55;" onclick="alert('🌟 LIFETIME key added (demo)')"><i class="fas fa-crown"></i> Buy now</button></div>
       </div>
-      <!-- Removed the back button here, since the top nav handles it -->
     </div>
     <div class="footer-script">
       <div><i class="fas fa-code"></i> loadstring: <span>game:HttpGet("https://pastebin.com/raw/YOUR_RIVALS_SCRIPT_ID")</span></div>
@@ -886,7 +882,6 @@
         <div class="price-card"><div class="key-label"><i class="far fa-calendar-plus"></i> 30-day key</div><div class="price">$9.99 <small>USD</small></div><button class="btn-buy-key" onclick="alert('🔑 30-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button></div>
         <div class="price-card" style="border-color: #b4ff5c66;"><div class="key-label"><i class="fas fa-infinity"></i> lifetime key</div><div class="price">$19.99 <small>USD</small></div><button class="btn-buy-key" style="background: #b4ff5c; box-shadow: 0 0 16px #7fb23e55;" onclick="alert('🌟 LIFETIME key added (demo)')"><i class="fas fa-crown"></i> Buy now</button></div>
       </div>
-      <!-- Removed the back button here, since the top nav handles it -->
     </div>
     <div class="footer-script">
       <div><i class="fas fa-code"></i> loadstring: <span>game:HttpGet("https://pastebin.com/raw/YOUR_MM2_SCRIPT_ID")</span></div>
