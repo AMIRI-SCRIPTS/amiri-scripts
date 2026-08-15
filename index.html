@@ -152,6 +152,11 @@
       font-size: 0.9rem;
       font-weight: 600;
       letter-spacing: 0.3px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
     }
     .badge i {
       font-size: 0.6rem;
@@ -177,6 +182,7 @@
     }
     .product-image-wrapper:hover {
       border-color: #b4ff5c88;
+      transform: scale(1.01);
     }
     .product-img {
       width: 100%;
@@ -463,7 +469,7 @@
 
     <div class="product-showcase">
       <div class="product-image-wrapper">
-        <!-- PRODUCT IMAGE - using your uploaded image -->
+        <!-- PRODUCT IMAGE - using your uploaded image in the same folder -->
         <img src="9306fd08-b88d-4373-b9f6-154c063575ed.jpg" alt="AMIRI Rivals Pro" class="product-img" />
       </div>
       <div class="buy-section">
