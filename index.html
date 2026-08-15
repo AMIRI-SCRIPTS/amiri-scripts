@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AMIRI SCRIPTS</title>
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * {
@@ -33,7 +32,6 @@
       transition: all 0.2s ease;
     }
 
-    /* ----- dark + lime accents ----- */
     .lime-text {
       color: #b4ff5c;
     }
@@ -47,17 +45,9 @@
       transform: scale(1.02);
       box-shadow: 0 0 20px #b4ff5c88;
     }
-    .lime-border {
-      border-color: #b4ff5c;
-    }
 
-    /* ----- START PAGE (default visible) ----- */
-    #startPage {
-      display: block;
-    }
-    #productPage {
-      display: none;
-    }
+    #startPage { display: block; }
+    #productPage { display: none; }
 
     .start-hero {
       display: flex;
@@ -126,7 +116,7 @@
       flex-wrap: wrap;
     }
 
-    /* ----- PRODUCT PAGE ----- */
+    /* PRODUCT PAGE */
     .brand {
       display: flex;
       align-items: center;
@@ -169,7 +159,6 @@
       margin-right: 6px;
     }
 
-    /* product showcase */
     .product-showcase {
       display: flex;
       flex-wrap: wrap;
@@ -189,16 +178,79 @@
     .product-image-wrapper:hover {
       border-color: #b4ff5c88;
     }
-    .product-img {
+
+    /* PRODUCT IMAGE PLACEHOLDER - RIVALS PRO AMIRI */
+    .product-img-placeholder {
       width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 1.2rem;
-      background: #0f1416;
       aspect-ratio: 16/9;
-      object-fit: cover;
-      box-shadow: 0 8px 20px #00000066;
-      border: 1px solid #2a3a2a;
+      background: radial-gradient(ellipse at 30% 40%, #1a3a1a, #0a120a);
+      border-radius: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #3a5a3a;
+      box-shadow: inset 0 0 60px #050a05;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-img-placeholder .glow {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 40% 30%, #b4ff5c22, transparent 60%);
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+    .product-img-placeholder .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 1rem;
+    }
+    .product-img-placeholder .rivals-text {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #b4ff5c;
+      text-shadow: 0 0 30px #6f9e3a, 0 0 60px #3a6a1a;
+      letter-spacing: 6px;
+      line-height: 1;
+    }
+    .product-img-placeholder .rivals-text small {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 8px;
+      display: block;
+      color: #9bb89b;
+      text-shadow: 0 0 20px #3a5a3a;
+      margin-top: 0.2rem;
+    }
+    .product-img-placeholder .amiri-brand {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #e6eee6;
+      letter-spacing: 10px;
+      margin-top: 0.3rem;
+      background: linear-gradient(90deg, #b4ff5c, #7fb23e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .product-img-placeholder .pro-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: #b4ff5c;
+      color: #0b0e0f;
+      padding: 0.15rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      box-shadow: 0 0 30px #b4ff5c66;
     }
 
     .buy-section {
@@ -236,7 +288,6 @@
       margin-right: 10px;
     }
 
-    /* collapsible "Key Features" */
     .collapse-section {
       background: #101618;
       border-radius: 2rem;
@@ -330,7 +381,6 @@
       width: 1.6rem;
     }
 
-    /* pricing page (hidden until #pricing) */
     .pricing-page {
       display: none;
       margin-top: 2.5rem;
@@ -410,7 +460,6 @@
       border-bottom-color: #b4ff5c;
     }
 
-    /* small footer */
     .footer-script {
       margin-top: 2rem;
       padding-top: 1rem;
@@ -433,25 +482,14 @@
     }
 
     @media (max-width: 700px) {
-      .container {
-        padding: 1.5rem;
-      }
-      .start-hero h1 {
-        font-size: 2.8rem;
-      }
-      .brand h1 {
-        font-size: 1.6rem;
-      }
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-      .product-image-wrapper {
-        flex: 1 1 100%;
-      }
-      .price-card {
-        flex: 1 0 130px;
-      }
+      .container { padding: 1.5rem; }
+      .start-hero h1 { font-size: 2.8rem; }
+      .brand h1 { font-size: 1.6rem; }
+      .btn { width: 100%; text-align: center; }
+      .product-image-wrapper { flex: 1 1 100%; }
+      .price-card { flex: 1 0 130px; }
+      .product-img-placeholder .rivals-text { font-size: 2rem; }
+      .product-img-placeholder .amiri-brand { font-size: 1.2rem; letter-spacing: 6px; }
     }
   </style>
 </head>
@@ -459,7 +497,7 @@
 
 <div class="container">
 
-  <!-- ============ START PAGE ============ -->
+  <!-- START PAGE -->
   <div id="startPage">
     <div class="start-hero">
       <div class="logo-icon"><i class="fas fa-bolt"></i></div>
@@ -479,21 +517,29 @@
     </div>
   </div>
 
-  <!-- ============ PRODUCT PAGE (RIVALS PRO) ============ -->
+  <!-- PRODUCT PAGE -->
   <div id="productPage">
 
-    <!-- header -->
     <div class="brand">
       <i class="fas fa-bolt"></i>
       <h1>AMIRI <span>| Rivals Pro</span></h1>
       <span class="badge"><i class="fas fa-circle"></i> v1-UNDETECTED</span>
     </div>
 
-    <!-- product showcase -->
     <div class="product-showcase">
       <div class="product-image-wrapper">
-        <!-- product image using the provided "image.png" (RIVALS PRO / AMIRI) -->
-        <img src="image.png" alt="AMIRI Rivals Pro" class="product-img" />
+        <!-- PRODUCT IMAGE - built-in placeholder with "RIVALS PRO AMIRI" -->
+        <div class="product-img-placeholder">
+          <div class="glow"></div>
+          <div class="content">
+            <div class="rivals-text">
+              RIVALS
+              <small>PRO</small>
+            </div>
+            <div class="amiri-brand">AMIRI</div>
+            <div class="pro-badge">⚡ PREMIUM</div>
+          </div>
+        </div>
       </div>
       <div class="buy-section">
         <h2><span class="lime-text">AMIRI</span> Rivals</h2>
@@ -528,7 +574,7 @@
       </div>
     </div>
 
-    <!-- PRICING PAGE (hidden, shows when #pricing is targeted) -->
+    <!-- PRICING -->
     <div class="pricing-page" id="pricing">
       <h2 style="color: #e6eee6; display: flex; align-items: center; gap: 0.8rem;">
         <i class="fas fa-tag" style="color: #b4ff5c;"></i> Choose your key
@@ -542,7 +588,6 @@
         <div class="price-card" style="border-color: #b4ff5c66;"><div class="key-label"><i class="fas fa-infinity"></i> lifetime key</div><div class="price">$24.99 <small>USD</small></div><button class="btn-buy-key" style="background: #b4ff5c; box-shadow: 0 0 16px #7fb23e55;" onclick="alert('🌟 LIFETIME key added (demo)')"><i class="fas fa-crown"></i> Buy now</button></div>
       </div>
 
-      <!-- product image again (small) -->
       <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; background: #111b1b; padding: 1rem 1.8rem; border-radius: 3rem; margin: 1.5rem 0 1rem 0; border: 1px solid #2f472f;">
         <div style="display: flex; align-items: center; gap: 1rem;">
           <i class="fas fa-crosshairs" style="font-size: 2.5rem; color: #b4ff5c;"></i>
@@ -557,7 +602,6 @@
       <a href="#productPage" class="back-link" onclick="event.preventDefault(); document.getElementById('pricing').style.display='none';"><i class="fas fa-arrow-left"></i> back to product</a>
     </div>
 
-    <!-- footer / loadstring -->
     <div class="footer-script">
       <div><i class="fas fa-code"></i> loadstring: <span>game:HttpGet("https://pastebin.com/raw/YOUR_SCRIPT_ID")</span></div>
       <div style="display: flex; gap: 1.2rem; color: #5a7a5a;">
@@ -567,27 +611,21 @@
       </div>
     </div>
 
-    <!-- hidden back link to start page (optional) -->
     <div style="margin-top: 1rem; text-align: right;">
       <a href="#" onclick="showStart()" style="color: #5a7a5a; font-size: 0.8rem; text-decoration: none; border-bottom: 1px dashed #3a5a3a;">
         <i class="fas fa-arrow-left"></i> back to AMIRI SCRIPTS
       </a>
     </div>
   </div>
-  <!-- end productPage -->
 
 </div>
 
 <script>
-  // ----- page switching -----
   function showProduct() {
     document.getElementById('startPage').style.display = 'none';
     document.getElementById('productPage').style.display = 'block';
-    // close pricing if open
     document.getElementById('pricing').style.display = 'none';
-    // collapse closed by default (reset)
-    const content = document.getElementById('collapseContent');
-    content.classList.remove('open');
+    document.getElementById('collapseContent').classList.remove('open');
     document.getElementById('arrowIcon').innerHTML = '<i class="fas fa-chevron-down"></i>';
   }
 
@@ -597,36 +635,28 @@
     document.getElementById('pricing').style.display = 'none';
   }
 
-  // ----- collapse toggle -----
   function toggleCollapse() {
     const content = document.getElementById('collapseContent');
     const arrow = document.getElementById('arrowIcon');
     content.classList.toggle('open');
-    if (content.classList.contains('open')) {
-      arrow.innerHTML = '<i class="fas fa-chevron-up"></i>';
-    } else {
-      arrow.innerHTML = '<i class="fas fa-chevron-down"></i>';
-    }
+    arrow.innerHTML = content.classList.contains('open') 
+      ? '<i class="fas fa-chevron-up"></i>' 
+      : '<i class="fas fa-chevron-down"></i>';
   }
 
-  // ensure pricing stays hidden on product load, and collapse closed
   window.onload = function() {
     document.getElementById('pricing').style.display = 'none';
     document.getElementById('collapseContent').classList.remove('open');
     document.getElementById('arrowIcon').innerHTML = '<i class="fas fa-chevron-down"></i>';
-    // start page visible by default
     document.getElementById('startPage').style.display = 'block';
     document.getElementById('productPage').style.display = 'none';
   };
 
-  // override anchor click for #pricing to show it properly
   document.querySelector('a[href="#pricing"]')?.addEventListener('click', function(e) {
     e.preventDefault();
     document.getElementById('pricing').style.display = 'block';
     document.getElementById('pricing').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
-
-  // back to product from pricing (using the onclick already)
 </script>
 
 </body>
