@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AMIRI SCRIPTS - MM2</title>
+  <title>AMIRI SCRIPTS</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * {
@@ -44,9 +44,13 @@
       box-shadow: 0 0 20px #b4ff5c88;
     }
 
+    /* PAGE DISPLAYS */
     #startPage { display: block; }
-    #productPage { display: none; }
+    #productSelectionPage { display: none; }
+    #rivalsProPage { display: none; }
+    #mm2ProPage { display: none; }
 
+    /* START PAGE */
     .start-hero {
       display: flex;
       flex-direction: column;
@@ -55,14 +59,12 @@
       text-align: center;
       padding: 3rem 1rem 4rem;
     }
-
     .start-hero .logo-icon {
       font-size: 5rem;
       color: #b4ff5c;
       filter: drop-shadow(0 0 20px #6f9e3a);
       margin-bottom: 0.5rem;
     }
-
     .start-hero h1 {
       font-size: 4.2rem;
       font-weight: 800;
@@ -76,7 +78,6 @@
       margin-top: 0.5rem;
       letter-spacing: 2px;
     }
-
     .start-hero .btn-hero {
       margin-top: 2.8rem;
       padding: 1rem 3.5rem;
@@ -98,7 +99,6 @@
       box-shadow: 0 10px 0 #5f8233;
       background: #c9ff7a;
     }
-
     .start-footer {
       margin-top: 3rem;
       color: #4a6a4a;
@@ -111,7 +111,7 @@
       flex-wrap: wrap;
     }
 
-    /* PRODUCT PAGE */
+    /* SHARED PRODUCT STYLES */
     .brand {
       display: flex;
       align-items: center;
@@ -381,6 +381,77 @@
       border: 1px solid #2b412b;
     }
 
+    /* PRODUCT SELECTION PAGE (NEW) */
+    .selection-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .selection-header h2 {
+      font-size: 2.2rem;
+      color: #e6eee6;
+    }
+    .selection-header p {
+      color: #9bb89b;
+      margin-top: 0.5rem;
+    }
+    .selection-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .selection-card {
+      background: #1a2124;
+      border-radius: 2rem;
+      padding: 1.5rem;
+      width: 300px;
+      border: 1px solid #2d402d;
+      text-align: center;
+      transition: 0.2s;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #0b0f0f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .selection-card:hover {
+      border-color: #b4ff5c;
+      transform: translateY(-6px);
+      box-shadow: 0 12px 0 #0b0f0f;
+    }
+    .selection-card img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 1.2rem;
+      margin-bottom: 1rem;
+      border: 1px solid #2a3a2a;
+      background: #0f1416;
+    }
+    .selection-card h3 {
+      color: #e6eee6;
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+    .selection-card span {
+      color: #9bb89b;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .selection-card .btn-select {
+      background: #b4ff5c;
+      border: none;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      color: #0b0e0f;
+      cursor: pointer;
+      transition: 0.15s;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .selection-card .btn-select:hover { background: #c9ff7a; transform: scale(1.02); }
+
     @media (max-width: 700px) {
       .container { padding: 1.5rem; }
       .start-hero h1 { font-size: 2.8rem; }
@@ -388,6 +459,7 @@
       .btn { width: 100%; text-align: center; }
       .product-image-wrapper { flex: 1 1 100%; }
       .price-card { flex: 1 0 130px; }
+      .selection-card { width: 100%; max-width: 350px; }
     }
   </style>
 </head>
@@ -401,7 +473,7 @@
       <div class="logo-icon"><i class="fas fa-bolt"></i></div>
       <h1>AMIRI <span>SCRIPTS</span></h1>
       <p class="tagline">execution hub · premium scripts</p>
-      <button class="btn-hero" onclick="showProduct()">
+      <button class="btn-hero" onclick="showSelection()">
         <i class="fas fa-eye"></i> VIEW PRODUCTS
       </button>
       <div style="margin-top: 2rem; color: #4a6a4a; font-size: 0.9rem;">
@@ -415,8 +487,109 @@
     </div>
   </div>
 
-  <!-- PRODUCT PAGE -->
-  <div id="productPage">
+  <!-- PRODUCT SELECTION PAGE -->
+  <div id="productSelectionPage">
+    <div class="brand">
+      <i class="fas fa-bolt"></i>
+      <h1>AMIRI <span>| Product Hub</span></h1>
+    </div>
+
+    <div class="selection-header">
+      <h2>Choose Your Script</h2>
+      <p>Select a product below to view features and pricing.</p>
+    </div>
+
+    <div class="selection-grid">
+      <!-- Rivals Pro Card -->
+      <div class="selection-card">
+        <img src="9306fd08-b88d-4373-b9f6-154c063575ed.jpg" alt="AMIRI Rivals Pro" />
+        <h3>AMIRI Rivals Pro</h3>
+        <span>Precision Aimbot & ESP</span>
+        <button class="btn-select" onclick="showRivals()">View Product</button>
+      </div>
+
+      <!-- MM2 Ultimate Card -->
+      <div class="selection-card">
+        <img src="watermarked_img_8760795523485273247.jpg" alt="AMIRI MM2 Ultimate" />
+        <h3>AMIRI MM2 Ultimate</h3>
+        <span>Lobby Control & Kill Aura</span>
+        <button class="btn-select" onclick="showMM2()">View Product</button>
+      </div>
+    </div>
+
+    <div style="margin-top: 2.5rem; text-align: center;">
+      <a href="#" onclick="showStart()" style="color: #5a7a5a; text-decoration: none; border-bottom: 1px dashed #3a5a3a;">
+        <i class="fas fa-arrow-left"></i> back to main menu
+      </a>
+    </div>
+  </div>
+
+  <!-- ================= RIVALS PRO PAGE ================= -->
+  <div id="rivalsProPage">
+
+    <div class="brand">
+      <i class="fas fa-bolt"></i>
+      <h1>AMIRI <span>| Rivals Pro</span></h1>
+      <span class="badge"><i class="fas fa-circle"></i> v1-UNDETECTED</span>
+    </div>
+
+    <div class="product-showcase">
+      <div class="product-image-wrapper">
+        <img src="9306fd08-b88d-4373-b9f6-154c063575ed.jpg" alt="AMIRI Rivals Pro" class="product-img" />
+      </div>
+      <div class="buy-section">
+        <h2><span class="lime-text">AMIRI</span> Rivals</h2>
+        <p class="sub"><i class="fas fa-check-circle" style="color: #b4ff5c;"></i> precision · speed · customization</p>
+        <a href="#pricingRivals" class="btn lime-bg">
+          <i class="fas fa-cart-plus"></i> Buy Now
+        </a>
+        <p style="font-size: 0.85rem; color: #7a977a;"><i class="fas fa-shield-alt"></i> instant delivery · secure</p>
+      </div>
+    </div>
+
+    <div class="collapse-section">
+      <div class="collapse-header" onclick="toggleCollapseRivals()">
+        <h3><i class="fas fa-bolt"></i> Key Features</h3>
+        <span class="arrow" id="arrowIconRivals"><i class="fas fa-chevron-down"></i></span>
+      </div>
+      <div class="collapse-content" id="collapseContentRivals">
+        <div class="feature-grid">
+          <div class="feature-item"><i class="fas fa-bullseye"></i> <strong>Advanced Aimbot:</strong> <span>Lock onto enemies instantly with customizable smoothing, FOV circles, target selection (Head/Torso), and prediction algorithms.</span></div>
+          <div class="feature-item"><i class="fas fa-eye"></i> <strong>Full Visual ESP:</strong> <span>See every move through walls. Displays player boxes, distance, health bars, and line-of-sight tracers in real time.</span></div>
+          <div class="feature-item"><i class="fas fa-rainbow"></i> <strong>Rainbow Gun & Custom Skins:</strong> <span>Flex on the server with smooth RGB rainbow cycles on your weapons and custom visual mods.</span></div>
+          <div class="feature-item"><i class="fas fa-rocket"></i> <strong>Fly & NoClip:</strong> <span>Bypass map boundaries, glide through terrain, and gain unfair high-ground advantages at high speeds.</span></div>
+          <div class="feature-item"><i class="fas fa-shield-virus"></i> <strong>Anti-Blind & QoL Tweaks:</strong> <span>Immunity to flashbangs and blind effects. Includes Dark Arena mode for improved contrast and visual clarity.</span></div>
+          <div class="feature-item"><i class="fas fa-sliders-h"></i> <strong>Config Manager:</strong> <span>Save and load your favorite playstyles instantly—switch between subtle closet settings and full rage modes in seconds.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-page" id="pricingRivals">
+      <h2 style="color: #e6eee6; display: flex; align-items: center; gap: 0.8rem;">
+        <i class="fas fa-tag" style="color: #b4ff5c;"></i> Choose your key
+      </h2>
+      <p style="color: #a0bfa0; margin-bottom: 0.5rem;">Secure instant access · all keys include full AMIRI Rivals Pro</p>
+      <div class="pricing-grid">
+        <div class="price-card"><div class="key-label"><i class="far fa-clock"></i> 1-day key</div><div class="price">$2.99 <small>USD</small></div><button class="btn-buy-key" onclick="alert('🔑 1-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button></div>
+        <div class="price-card"><div class="key-label"><i class="far fa-calendar-alt"></i> 7-day key</div><div class="price">$4.99 <small>USD</small></div><button class="btn-buy-key" onclick="alert('🔑 7-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button></div>
+        <div class="price-card"><div class="key-label"><i class="far fa-calendar-plus"></i> 30-day key</div><div class="price">$14.99 <small>USD</small></div><button class="btn-buy-key" onclick="alert('🔑 30-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button></div>
+        <div class="price-card" style="border-color: #b4ff5c66;"><div class="key-label"><i class="fas fa-infinity"></i> lifetime key</div><div class="price">$24.99 <small>USD</small></div><button class="btn-buy-key" style="background: #b4ff5c; box-shadow: 0 0 16px #7fb23e55;" onclick="alert('🌟 LIFETIME key added (demo)')"><i class="fas fa-crown"></i> Buy now</button></div>
+      </div>
+      <a href="#" class="back-link" onclick="event.preventDefault(); showSelection();"><i class="fas fa-arrow-left"></i> back to all products</a>
+    </div>
+
+    <div class="footer-script">
+      <div><i class="fas fa-code"></i> loadstring: <span>game:HttpGet("https://pastebin.com/raw/YOUR_RIVALS_SCRIPT_ID")</span></div>
+      <div style="display: flex; gap: 1.2rem; color: #5a7a5a;">
+        <span><i class="fas fa-circle" style="color: #b4ff5c; font-size: 0.5rem;"></i> color aimbot</span>
+        <span><i class="fas fa-circle" style="color: #b4ff5c; font-size: 0.5rem;"></i> FOV circle</span>
+        <span><i class="fas fa-circle" style="color: #b4ff5c; font-size: 0.5rem;"></i> fast config</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MM2 ULTIMATE PAGE ================= -->
+  <div id="mm2ProPage">
 
     <div class="brand">
       <i class="fas fa-bolt"></i>
@@ -426,26 +599,24 @@
 
     <div class="product-showcase">
       <div class="product-image-wrapper">
-        <!-- PRODUCT IMAGE - using your uploaded MM2 image -->
         <img src="watermarked_img_8760795523485273247.jpg" alt="AMIRI MM2 Ultimate" class="product-img" />
       </div>
       <div class="buy-section">
         <h2><span class="lime-text">AMIRI</span> MM2</h2>
         <p class="sub"><i class="fas fa-check-circle" style="color: #b4ff5c;"></i> total lobby control · zero lag</p>
-        <a href="#pricing" class="btn lime-bg">
+        <a href="#pricingMM2" class="btn lime-bg">
           <i class="fas fa-cart-plus"></i> Buy Now
         </a>
         <p style="font-size: 0.85rem; color: #7a977a;"><i class="fas fa-shield-alt"></i> instant delivery · secure</p>
       </div>
     </div>
 
-    <!-- COLLAPSIBLE KEY FEATURES -->
     <div class="collapse-section">
-      <div class="collapse-header" onclick="toggleCollapse()">
+      <div class="collapse-header" onclick="toggleCollapseMM2()">
         <h3><i class="fas fa-bolt"></i> Key Features</h3>
-        <span class="arrow" id="arrowIcon"><i class="fas fa-chevron-down"></i></span>
+        <span class="arrow" id="arrowIconMM2"><i class="fas fa-chevron-down"></i></span>
       </div>
-      <div class="collapse-content" id="collapseContent">
+      <div class="collapse-content" id="collapseContentMM2">
         <div class="feature-grid">
           <div class="feature-item"><i class="fas fa-people-arrows"></i> <strong>Comprehensive ESP:</strong> <span>Identify Murderers (Red), Sheriffs (Blue), and Innocents (Green). Includes Player Boxes, Skeleton tracking, and Dropped Gun indicators with tracer lines.</span></div>
           <div class="feature-item"><i class="fas fa-paper-plane"></i> <strong>Advanced Movement:</strong> <span>Smooth 3D Fly, NoClip through walls, customizable Speed Booster, and Infinite Jump for unparalleled map control.</span></div>
@@ -458,32 +629,18 @@
       </div>
     </div>
 
-    <!-- PRICING -->
-    <div class="pricing-page" id="pricing">
+    <div class="pricing-page" id="pricingMM2">
       <h2 style="color: #e6eee6; display: flex; align-items: center; gap: 0.8rem;">
         <i class="fas fa-tag" style="color: #b4ff5c;"></i> Choose your key
       </h2>
       <p style="color: #a0bfa0; margin-bottom: 0.5rem;">Secure instant access · all keys include full AMIRI MM2 Ultimate</p>
-
       <div class="pricing-grid">
         <div class="price-card"><div class="key-label"><i class="far fa-clock"></i> 1-day key</div><div class="price">$0.99 <small>USD</small></div><button class="btn-buy-key" onclick="alert('🔑 1-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button></div>
         <div class="price-card"><div class="key-label"><i class="far fa-calendar-alt"></i> 7-day key</div><div class="price">$2.99 <small>USD</small></div><button class="btn-buy-key" onclick="alert('🔑 7-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button></div>
         <div class="price-card"><div class="key-label"><i class="far fa-calendar-plus"></i> 30-day key</div><div class="price">$9.99 <small>USD</small></div><button class="btn-buy-key" onclick="alert('🔑 30-day key added (demo)')"><i class="fas fa-key"></i> Buy now</button></div>
         <div class="price-card" style="border-color: #b4ff5c66;"><div class="key-label"><i class="fas fa-infinity"></i> lifetime key</div><div class="price">$19.99 <small>USD</small></div><button class="btn-buy-key" style="background: #b4ff5c; box-shadow: 0 0 16px #7fb23e55;" onclick="alert('🌟 LIFETIME key added (demo)')"><i class="fas fa-crown"></i> Buy now</button></div>
       </div>
-
-      <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; background: #111b1b; padding: 1rem 1.8rem; border-radius: 3rem; margin: 1.5rem 0 1rem 0; border: 1px solid #2f472f;">
-        <div style="display: flex; align-items: center; gap: 1rem;">
-          <i class="fas fa-crosshairs" style="font-size: 2.5rem; color: #b4ff5c;"></i>
-          <span style="color: #b4ff5c; font-weight: 600;">AMIRI · MM2 ULTIMATE</span>
-        </div>
-        <div style="display: flex; gap: 0.5rem; color: #9bb89b; font-size: 0.9rem;">
-          <i class="fas fa-check-circle" style="color: #b4ff5c;"></i> instant activation
-          <i class="fas fa-check-circle" style="color: #b4ff5c; margin-left: 0.8rem;"></i> 24/7 support
-        </div>
-      </div>
-
-      <a href="#productPage" class="back-link" onclick="event.preventDefault(); document.getElementById('pricing').style.display='none';"><i class="fas fa-arrow-left"></i> back to product</a>
+      <a href="#" class="back-link" onclick="event.preventDefault(); showSelection();"><i class="fas fa-arrow-left"></i> back to all products</a>
     </div>
 
     <div class="footer-script">
@@ -494,53 +651,85 @@
         <span><i class="fas fa-circle" style="color: #b4ff5c; font-size: 0.5rem;"></i> fly & noclip</span>
       </div>
     </div>
-
-    <div style="margin-top: 1rem; text-align: right;">
-      <a href="#" onclick="showStart()" style="color: #5a7a5a; font-size: 0.8rem; text-decoration: none; border-bottom: 1px dashed #3a5a3a;">
-        <i class="fas fa-arrow-left"></i> back to AMIRI SCRIPTS
-      </a>
-    </div>
   </div>
 
 </div>
 
 <script>
-  function showProduct() {
-    document.getElementById('startPage').style.display = 'none';
-    document.getElementById('productPage').style.display = 'block';
-    document.getElementById('pricing').style.display = 'none';
-    document.getElementById('collapseContent').classList.remove('open');
-    document.getElementById('arrowIcon').innerHTML = '<i class="fas fa-chevron-down"></i>';
-  }
-
+  // ================= NAVIGATION FUNCTIONS =================
   function showStart() {
+    hideAllPages();
     document.getElementById('startPage').style.display = 'block';
-    document.getElementById('productPage').style.display = 'none';
-    document.getElementById('pricing').style.display = 'none';
   }
 
-  function toggleCollapse() {
-    const content = document.getElementById('collapseContent');
-    const arrow = document.getElementById('arrowIcon');
+  function showSelection() {
+    hideAllPages();
+    document.getElementById('productSelectionPage').style.display = 'block';
+  }
+
+  function showRivals() {
+    hideAllPages();
+    document.getElementById('rivalsProPage').style.display = 'block';
+    document.getElementById('pricingRivals').style.display = 'none';
+    document.getElementById('collapseContentRivals').classList.remove('open');
+    document.getElementById('arrowIconRivals').innerHTML = '<i class="fas fa-chevron-down"></i>';
+  }
+
+  function showMM2() {
+    hideAllPages();
+    document.getElementById('mm2ProPage').style.display = 'block';
+    document.getElementById('pricingMM2').style.display = 'none';
+    document.getElementById('collapseContentMM2').classList.remove('open');
+    document.getElementById('arrowIconMM2').innerHTML = '<i class="fas fa-chevron-down"></i>';
+  }
+
+  function hideAllPages() {
+    document.getElementById('startPage').style.display = 'none';
+    document.getElementById('productSelectionPage').style.display = 'none';
+    document.getElementById('rivalsProPage').style.display = 'none';
+    document.getElementById('mm2ProPage').style.display = 'none';
+  }
+
+  // ================= COLLAPSE TOGGLES =================
+  function toggleCollapseRivals() {
+    const content = document.getElementById('collapseContentRivals');
+    const arrow = document.getElementById('arrowIconRivals');
     content.classList.toggle('open');
-    arrow.innerHTML = content.classList.contains('open') 
-      ? '<i class="fas fa-chevron-up"></i>' 
-      : '<i class="fas fa-chevron-down"></i>';
+    arrow.innerHTML = content.classList.contains('open') ? '<i class="fas fa-chevron-up"></i>' : '<i class="fas fa-chevron-down"></i>';
   }
 
-  window.onload = function() {
-    document.getElementById('pricing').style.display = 'none';
-    document.getElementById('collapseContent').classList.remove('open');
-    document.getElementById('arrowIcon').innerHTML = '<i class="fas fa-chevron-down"></i>';
-    document.getElementById('startPage').style.display = 'block';
-    document.getElementById('productPage').style.display = 'none';
-  };
+  function toggleCollapseMM2() {
+    const content = document.getElementById('collapseContentMM2');
+    const arrow = document.getElementById('arrowIconMM2');
+    content.classList.toggle('open');
+    arrow.innerHTML = content.classList.contains('open') ? '<i class="fas fa-chevron-up"></i>' : '<i class="fas fa-chevron-down"></i>';
+  }
 
-  document.querySelector('a[href="#pricing"]')?.addEventListener('click', function(e) {
+  // ================= PRICING CLICK HANDLERS =================
+  document.querySelector('a[href="#pricingRivals"]')?.addEventListener('click', function(e) {
     e.preventDefault();
-    document.getElementById('pricing').style.display = 'block';
-    document.getElementById('pricing').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('pricingRivals').style.display = 'block';
+    document.getElementById('pricingRivals').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+
+  document.querySelector('a[href="#pricingMM2"]')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('pricingMM2').style.display = 'block';
+    document.getElementById('pricingMM2').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // ================= ON LOAD =================
+  window.onload = function() {
+    hideAllPages();
+    document.getElementById('startPage').style.display = 'block';
+    // Ensure pricing and collapses are hidden/closed on load
+    document.getElementById('pricingRivals').style.display = 'none';
+    document.getElementById('pricingMM2').style.display = 'none';
+    document.getElementById('collapseContentRivals').classList.remove('open');
+    document.getElementById('collapseContentMM2').classList.remove('open');
+    document.getElementById('arrowIconRivals').innerHTML = '<i class="fas fa-chevron-down"></i>';
+    document.getElementById('arrowIconMM2').innerHTML = '<i class="fas fa-chevron-down"></i>';
+  };
 </script>
 
 </body>
