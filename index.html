@@ -178,79 +178,16 @@
     .product-image-wrapper:hover {
       border-color: #b4ff5c88;
     }
-
-    /* PRODUCT IMAGE PLACEHOLDER - RIVALS PRO AMIRI */
-    .product-img-placeholder {
+    .product-img {
       width: 100%;
-      aspect-ratio: 16/9;
-      background: radial-gradient(ellipse at 30% 40%, #1a3a1a, #0a120a);
-      border-radius: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #3a5a3a;
-      box-shadow: inset 0 0 60px #050a05;
-      position: relative;
-      overflow: hidden;
-    }
-    .product-img-placeholder .glow {
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 40% 30%, #b4ff5c22, transparent 60%);
-      animation: pulseGlow 4s ease-in-out infinite;
-    }
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.1); }
-    }
-    .product-img-placeholder .content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 1rem;
-    }
-    .product-img-placeholder .rivals-text {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #b4ff5c;
-      text-shadow: 0 0 30px #6f9e3a, 0 0 60px #3a6a1a;
-      letter-spacing: 6px;
-      line-height: 1;
-    }
-    .product-img-placeholder .rivals-text small {
-      font-size: 1.2rem;
-      font-weight: 300;
-      letter-spacing: 8px;
+      height: auto;
       display: block;
-      color: #9bb89b;
-      text-shadow: 0 0 20px #3a5a3a;
-      margin-top: 0.2rem;
-    }
-    .product-img-placeholder .amiri-brand {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #e6eee6;
-      letter-spacing: 10px;
-      margin-top: 0.3rem;
-      background: linear-gradient(90deg, #b4ff5c, #7fb23e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .product-img-placeholder .pro-badge {
-      display: inline-block;
-      margin-top: 0.5rem;
-      background: #b4ff5c;
-      color: #0b0e0f;
-      padding: 0.15rem 1.4rem;
-      border-radius: 40px;
-      font-weight: 800;
-      font-size: 0.8rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      box-shadow: 0 0 30px #b4ff5c66;
+      border-radius: 1.2rem;
+      background: #0f1416;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      box-shadow: 0 8px 20px #00000066;
+      border: 1px solid #2a3a2a;
     }
 
     .buy-section {
@@ -488,8 +425,6 @@
       .btn { width: 100%; text-align: center; }
       .product-image-wrapper { flex: 1 1 100%; }
       .price-card { flex: 1 0 130px; }
-      .product-img-placeholder .rivals-text { font-size: 2rem; }
-      .product-img-placeholder .amiri-brand { font-size: 1.2rem; letter-spacing: 6px; }
     }
   </style>
 </head>
@@ -528,18 +463,8 @@
 
     <div class="product-showcase">
       <div class="product-image-wrapper">
-        <!-- PRODUCT IMAGE - built-in placeholder with "RIVALS PRO AMIRI" -->
-        <div class="product-img-placeholder">
-          <div class="glow"></div>
-          <div class="content">
-            <div class="rivals-text">
-              RIVALS
-              <small>PRO</small>
-            </div>
-            <div class="amiri-brand">AMIRI</div>
-            <div class="pro-badge">⚡ PREMIUM</div>
-          </div>
-        </div>
+        <!-- PRODUCT IMAGE - using your uploaded image -->
+        <img src="9306fd08-b88d-4373-b9f6-154c063575ed.jpg" alt="AMIRI Rivals Pro" class="product-img" />
       </div>
       <div class="buy-section">
         <h2><span class="lime-text">AMIRI</span> Rivals</h2>
