@@ -121,9 +121,8 @@
       flex-basis: 100%;
     }
     .top-logo-container img {
-      max-height: 160px; /* Made much bigger */
+      max-height: 200px; /* Made even bigger */
       width: auto;
-      /* No glow/drop-shadow here anymore to blend into background */
       transition: transform 0.2s ease;
     }
     .top-logo-container img:hover {
@@ -136,7 +135,7 @@
       padding-right: 2rem;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Perfectly centers buttons horizontally */
+      align-items: center;
       justify-content: center;
       text-align: center;
     }
@@ -194,20 +193,20 @@
       background: #6b79ff;
     }
 
-    /* Right Column: Character Image (Full Bleed, No Border) */
+    /* Right Column: Character Image - BIGGER & NO LEFT SHADOW */
     .start-image-container {
       flex: 1 1 45%;
       display: flex;
-      justify-content: flex-end; /* Pushes image to the far right */
+      justify-content: flex-end;
       align-items: center;
       overflow: hidden;
     }
     .start-image-container img {
       max-width: 100%;
       height: auto;
-      max-height: 450px;
+      max-height: 520px; /* Increased from 450px to make it bigger */
       display: block;
-      filter: drop-shadow(0 0 30px rgba(0,0,0,0.8));
+      filter: drop-shadow(0 0 30px rgba(0,0,0,0.6)); /* Reduced shadow, removed directional bias */
       transition: transform 0.3s ease;
     }
     .start-image-container img:hover {
@@ -663,7 +662,7 @@
     }
     @media (max-width: 700px) {
       .container { padding: 1.5rem; }
-      .top-logo-container img { max-height: 120px; }
+      .top-logo-container img { max-height: 140px; }
       .brand h1 { font-size: 1.6rem; }
       .btn { width: 100%; text-align: center; }
       .product-image-wrapper { flex: 1 1 100%; }
@@ -732,7 +731,7 @@
         </div>
       </div>
 
-      <!-- RIGHT SIDE: Character Image (Frameless, far right) -->
+      <!-- RIGHT SIDE: Character Image (Bigger, No Left Shadow) -->
       <div class="start-image-container">
         <img src="2645027a-7d52-4364-928c-8cc646414bc5.jpg" alt="Showcase" />
       </div>
