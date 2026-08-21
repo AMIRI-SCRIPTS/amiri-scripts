@@ -113,15 +113,15 @@
       z-index: 2;
     }
 
-    /* Top Logo - HUGE & NO GLOW */
+    /* Top Logo - MASSIVE SIZE */
     .top-logo-container {
       width: 100%;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       flex-basis: 100%;
     }
     .top-logo-container img {
-      max-height: 200px; /* Made even bigger */
+      max-height: 280px; /* DRAMATICALLY BIGGER */
       width: auto;
       transition: transform 0.2s ease;
     }
@@ -131,7 +131,7 @@
 
     /* Left/Content Column - Buttons PERFECTLY CENTERED */
     .start-content {
-      flex: 1 1 45%;
+      flex: 1 1 40%;
       padding-right: 2rem;
       display: flex;
       flex-direction: column;
@@ -193,24 +193,24 @@
       background: #6b79ff;
     }
 
-    /* Right Column: Character Image - BIGGER & NO LEFT SHADOW */
+    /* Right Column: Character Image - MASSIVE & NO SHADOW AT ALL */
     .start-image-container {
-      flex: 1 1 45%;
+      flex: 1 1 55%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      overflow: hidden;
+      overflow: visible;
     }
     .start-image-container img {
       max-width: 100%;
       height: auto;
-      max-height: 520px; /* Increased from 450px to make it bigger */
+      max-height: 650px; /* MUCH BIGGER */
       display: block;
-      filter: drop-shadow(0 0 30px rgba(0,0,0,0.6)); /* Reduced shadow, removed directional bias */
+      /* NO SHADOW - completely removed */
       transition: transform 0.3s ease;
     }
     .start-image-container img:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
 
     .start-footer {
@@ -658,17 +658,19 @@
         margin-top: 1.5rem; 
         width: 100%;
       }
+      .start-image-container img { max-height: 400px; }
       .btn-hero, .btn-discord { width: 100%; justify-content: center; }
     }
     @media (max-width: 700px) {
       .container { padding: 1.5rem; }
-      .top-logo-container img { max-height: 140px; }
+      .top-logo-container img { max-height: 180px; }
       .brand h1 { font-size: 1.6rem; }
       .btn { width: 100%; text-align: center; }
       .product-image-wrapper { flex: 1 1 100%; }
       .price-card { flex: 1 0 130px; }
       .selection-card { width: 100%; max-width: 350px; }
       .popup-box { padding: 1.8rem; }
+      .start-image-container img { max-height: 300px; }
     }
   </style>
 </head>
@@ -709,12 +711,12 @@
   <div id="startPage">
     <div class="start-hero">
       
-      <!-- TOP LOGO - HUGE & NO GLOW -->
+      <!-- TOP LOGO - MASSIVE -->
       <div class="top-logo-container">
         <img src="cde55854-5534-4814-9a1c-fbda63bcba1d.jpg" alt="AMIRI Logo" />
       </div>
 
-      <!-- LEFT SIDE: Buttons (Perfectly Centered) -->
+      <!-- LEFT SIDE: Buttons -->
       <div class="start-content">
         <p class="tagline">execution hub · premium scripts</p>
         
@@ -731,7 +733,7 @@
         </div>
       </div>
 
-      <!-- RIGHT SIDE: Character Image (Bigger, No Left Shadow) -->
+      <!-- RIGHT SIDE: Character Image - MASSIVE, NO SHADOW -->
       <div class="start-image-container">
         <img src="2645027a-7d52-4364-928c-8cc646414bc5.jpg" alt="Showcase" />
       </div>
